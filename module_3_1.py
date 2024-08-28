@@ -7,14 +7,14 @@ def count_calls():
 
 
 def string_info(my_string):
-    my_tuple = (my_string, len(my_string), my_string.upper(), my_string.lower())
+    my_tuple = (len(my_string), my_string.upper(), my_string.lower())
     count_calls()
     return my_tuple
 
 
 def is_contains(my_string, list_to_search):
+    eq_string = False
     for i in list_to_search:
-        eq_string = False
         if i.lower() == my_string.lower():
             eq_string = True
     count_calls()
@@ -22,6 +22,7 @@ def is_contains(my_string, list_to_search):
 
 
 print(string_info('Capybara'))
+print(string_info('Armageddon'))
 print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))  # Urban ~ urBAN
 print(is_contains('cycle', ['recycling', 'cyclic']))  # No matches
 print(calls)
