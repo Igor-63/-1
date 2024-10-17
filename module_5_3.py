@@ -18,34 +18,58 @@ class House:
         return out
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        else:
+            return print('ошибка')
 
 
     def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
+
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        else:
+            return print('ошибка')
+
+
 
     def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors <= other.number_of_floors
+        else:
+            return print('ошибка')
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        else:
+            return print('ошибка')
 
 
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors >= other.number_of_floors
+        else:
+            return print('ошибка')
 
     def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
+        if isinstance(self, House) and isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        else:
+            return print('ошибка')
 
 
     def __add__(self, value: int):
 
         if isinstance(value, int) and isinstance(self, House):
             self.number_of_floors = self.number_of_floors + value
-        return self
+            return self
+        else:
+            return print('ошибка')
+
+
 
     def __radd__(self, value: int):
-
         return self + value
 
     def __iadd__(self, value: int):
@@ -56,6 +80,8 @@ class House:
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
+
+
 
 print(h1)
 print(h2)
