@@ -9,7 +9,7 @@ class Bank():
         self.balance = 0
 
     def deposit(self):
-        self.lock.acquire()
+        
         for _ in range(5):
 
                 rand1 =  random.randint(50, 500)
