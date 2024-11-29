@@ -10,16 +10,18 @@ class Bank():
 
     def deposit(self):
        
-        for _ in range(10):
+        for _ in range(100):
 
-                if self.lock.locked() and self.balance >= 500:
-                    self.lock.release()
 
                 rand1 =  random.randint(50, 500)
+
+
                 self.lock.acquire()
+
                 self.balance = self.balance + rand1
                 print (f'Пополнение: {rand1}. Баланс: {self.balance}.')
-                self.lock.release()
+
+                if self.lock.locked(): self.lock.release()
 
                 sleep(0.001)
 
@@ -27,24 +29,26 @@ class Bank():
 
     def take(self):
 
-            for _ in range(10):
+            for _ in range(100):
 
                 self.lock.acquire()
+
                 rand1 =  random.randint(50, 500)
                 print(f'Запрос на: {rand1}.')
 
                 if rand1 > self.balance:
                     print('Запрос отклонён, недостаточно средств')
+
                 else:
+
                     self.balance = self.balance - rand1
                     print ( f'Снятие: {rand1}. Баланс: {self.balance}.')
-                self.lock.release()
+
+
+                if self.lock.locked(): self.lock.release()
+
+                
                 sleep(0.001)
-
-
-
-
-
 
 
 
